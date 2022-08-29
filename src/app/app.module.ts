@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core';
+import { NgModel } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { ServerComponent } from './server/server.component';
@@ -14,7 +16,7 @@ import { WarningAlertComponent } from './warning-alert/warning-alert.component';
     SuccessAlertComponent,
     WarningAlertComponent,
   ],
-  imports: [BrowserModule],
+  imports: [BrowserModule, FormsModule], 
   providers: [],
   bootstrap: [AppComponent],
 })
