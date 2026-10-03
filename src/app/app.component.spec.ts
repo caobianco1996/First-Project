@@ -1,31 +1,32 @@
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { ServerComponent } from './server/server.component';
+import { ServersComponent } from './servers/servers.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AppComponent],
+      imports: [CommonModule, FormsModule],
+      declarations: [AppComponent, ServerComponent, ServersComponent],
     }).compileComponents();
   });
 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    expect(fixture.componentInstance).toBeTruthy();
   });
 
-  it(`should have as title 'my-first-app'`, () => {
+  it('should expose the server list title', () => {
     const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('my-first-app');
+    expect(fixture.componentInstance.title).toBe('Lista de servidores');
   });
 
-  it('should render title', () => {
+  it('should render the server list heading', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain(
-      'my-first-app app is running!'
-    );
+    const heading = (fixture.nativeElement as HTMLElement).querySelector('h1');
+    expect(heading?.textContent).toContain('Lista de servidores');
   });
 });
