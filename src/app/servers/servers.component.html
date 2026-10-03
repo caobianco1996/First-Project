@@ -13,8 +13,8 @@
   Add Server
 </button>
 
-<p *ngIf="serverCreated" role="status">
-  Server was created, server name is {{ lastCreatedServer }}
+<p *ngIf="lastCreatedServer" role="status">
+  Server was created: {{ lastCreatedServer }}
 </p>
 
-<app-server *ngFor="let server of servers"></app-server>
+<app-server *ngFor="let server of servers" [serverName]="server"></app-server>
