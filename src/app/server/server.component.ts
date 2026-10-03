@@ -1,29 +1,18 @@
-import { Component } from '@angular/core';
-import { reduce } from 'rxjs';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-server',
   templateUrl: './server.component.html',
   styles: [`
-  .online {
-    color: white;
-  }
+    .online { color: white; }
   `]
 })
 export class ServerComponent {
-  serverId: number = 10;
-  serverStatus: string = 'offline';
+  @Input() serverName = '';
+  serverId = Math.floor(Math.random() * 10000);
+  serverStatus: 'online' | 'offline' = Math.random() > 0.5 ? 'online' : 'offline';
 
-
-  constructor(){
-    this.serverStatus = Math.random() > 0.5 ? 'online' : 'offline';
-  } 
-  
-  getServerStatus() {
-    return this.serverStatus;
-  }
-
-  getColor(){
+  getColor(): string {
     return this.serverStatus === 'online' ? 'green' : 'red';
   }
 }
