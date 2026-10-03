@@ -1,5 +1,8 @@
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { ServerComponent } from '../server/server.component';
 import { ServersComponent } from './servers.component';
 
 describe('ServersComponent', () => {
@@ -8,9 +11,9 @@ describe('ServersComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ServersComponent ]
-    })
-    .compileComponents();
+      imports: [CommonModule, FormsModule],
+      declarations: [ServersComponent, ServerComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
